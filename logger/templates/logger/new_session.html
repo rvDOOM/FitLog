@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Workout Session</title>
+  </head>
+  <body>
+    <header>
+      <h1>New Workout Session</h1>
+    </header>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
+    <button>Add workout</button>
+  </body>
+</html>

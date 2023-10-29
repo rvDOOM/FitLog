@@ -20,11 +20,10 @@ def create_session(request):
                 description=form.cleaned_data["description"],
             )
             new_session.save()
-            ## TODO: ADD A REDIRECTION
     else:
         form = CreateSessionForm()
 
-    return None
+    return render(request, "logger/new_session.html", {"form": form})
 
 
 @login_required

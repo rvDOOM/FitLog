@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 
 
 class Session(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, default=None)
     date = models.DateField()
     description = models.TextField(blank=True, null=True)
 
