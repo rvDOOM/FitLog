@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,9 +12,11 @@
       {% csrf_token %}
       {{ form.as_p }}
     </form>
-    <button>Add workout</button>
-    <script src="actions.js" type="text/javascript">
+    <button class="js-add-workout">Add workout</button>
+    <p class="js-workout-display">
+
+    </p>
       
-    </script>
+    <script src="{% static 'script.js' %}"></script>
   </body>
 </html>
