@@ -11,16 +11,25 @@ newWorkoutElement.addEventListener('click',() => {
   let newWorkoutObject = {
     name: '',
     sets: [],
-    html: 
-    `<div class='workout-number'>Workout ${currWorkouts.length + 1}</div>
-    <div class='js-workout-name-${currWorkouts.length}'></div>
-    <div class='js-set-display-${currWorkouts.length}'></div>`,
     "init-setup": true,
 
   }
-  currWorkouts.push(newWorkoutObject);
-  displayWorkouts();
 
+  let confirmName = 
+    `<button class="js-confirm-workout" onclick="confirm(${currWorkouts.length})">confirm</button>`;
+  let workoutDisplayElement = document.querySelector('.js-workout-display');
+
+  workoutDisplayElement.innerHTML +=
+    `<div class="js-workout-display-${currWorkouts.length}">
+    <div class='workout-number'>Workout ${currWorkouts.length + 1}</div>
+    <div class='js-workout-name-${currWorkouts.length}'>
+      <input type="text" placeholder="" class="js-workout-input-${currWorkouts.length}">${confirmName}
+    </div>
+    <div class='js-set-display-${currWorkouts.length}'></div>
+    </div>`;
+
+    
+  currWorkouts.push(newWorkoutObject);
 
 })
 
@@ -93,14 +102,6 @@ const displayWorkouts =  () => {
 
 
     if (currWorkouts[index]["init-setup"]) {
-      console.log("Index: " + index + ": We in true 1");
-      let workoutInput = `<input type="text" placeholder="" class="js-workout-input-${index}">`;
-      let addSetButton = 
-        `<button class="js-confirm-workout" onclick="confirm(${index})">confirm</button>`;
-      let workoutDisplayElement = document.querySelector(`.js-workout-name-${index}`);
-
-      workoutDisplayElement.innerHTML = workoutInput + addSetButton;
-
     } else {
 
       // TODO
